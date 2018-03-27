@@ -1,48 +1,23 @@
 import React from 'react';
-import { View, Text, Button, Platform, StyleSheet } from 'react-native';
+import { FlatList } from 'react-native';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import ListItem from '../components/ListItem';
 
 class HomeScreen extends React.Component {
   render() {
-    const { pressListItem } = this.props.screenProps;
+    const { pressListItem, topics } = this.props.screenProps;
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-        <Button style={{ alignSelf: 'center' }} title="detail" onPress={() => pressListItem()} />
-      </View>
+      <FlatList
+        data={topics}
+        extraData={topics}
+        keyExtractor={(item, index) => String(index)}
+        renderItem={({ item }) => (
+          <ListItem
+            item={item}
+            pressListItem={pressListItem}
+          />
+        )}
+      />
     );
   }
 }

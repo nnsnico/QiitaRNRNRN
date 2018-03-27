@@ -22,8 +22,20 @@ function nav(state = initialNavState, action) {
   }
 }
 
+const initialTopics = [];
+function topics(state = initialTopics, action) {
+  switch (action.type) {
+    case 'LOAD_TOPICS': {
+      return action.topics;
+    }
+    default:
+      return state;
+  }
+}
+
 const appReducer = combineReducers({
   nav,
+  topics,
 });
 
 export default appReducer;
