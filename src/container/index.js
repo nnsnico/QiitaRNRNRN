@@ -51,7 +51,9 @@ class AppWithNavigationState extends React.Component {
   }
 
   render() {
-    const { dispatch, nav, addListener } = this.props;
+    const {
+      dispatch, nav, addListener, topics,
+    } = this.props;
     return (
       <AppNavigator
         navigation={
@@ -63,6 +65,7 @@ class AppWithNavigationState extends React.Component {
         }
         screenProps={{
           pressListItem: this.pressListItem,
+          topics,
         }}
       />
     );
@@ -72,6 +75,7 @@ class AppWithNavigationState extends React.Component {
 function mapStateToProps(state) {
   return ({
     nav: state.nav,
+    topics: state.topics,
   });
 }
 
