@@ -6,7 +6,6 @@ import { loadTopics } from '../actions/index';
 function* initLoad() {
   try {
     const topics = yield call(getTopics);
-    console.log('topics', topics);
     yield put(loadTopics(topics));
   } catch (error) {
     console.log('network error', error);

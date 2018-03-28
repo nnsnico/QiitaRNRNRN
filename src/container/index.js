@@ -10,15 +10,17 @@ import { goDetail } from '../actions/index';
 export const AppNavigator = StackNavigator({
   Home: {
     screen: HomeScreen,
-    navigationOptions: {
-      title: 'Home',
-    },
   },
   Detail: {
     screen: DetailScreen,
-    navigationOptions: {
-      title: 'Detail',
+  },
+}, {
+  navigationOptions: {
+    headerStyle: {
+      backgroundColor: '#8BC34AFF',
     },
+    headerTintColor: '#fff',
+    statusBarStyle: 'light-content',
   },
 });
 
@@ -45,9 +47,9 @@ class AppWithNavigationState extends React.Component {
     return true;
   }
 
-  pressListItem() {
+  pressListItem(item) {
     const { dispatch } = this.props;
-    dispatch(goDetail());
+    dispatch(goDetail(item));
   }
 
   render() {

@@ -63,12 +63,12 @@ class ListItem extends React.Component {
         (
           <TouchableNativeFeedback
             background={TouchableNativeFeedback.Ripple('#B0BEC5FF')}
-            onPress={() => pressListItem()}
+            onPress={() => pressListItem(item)}
           >
             {Container(item)}
           </TouchableNativeFeedback>) :
         (
-          <TouchableHighlight style={{ backgroundColor: '#B0BEC5FF' }} onPress={() => pressListItem()}>
+          <TouchableHighlight style={{ backgroundColor: '#B0BEC5FF' }} onPress={() => pressListItem(item)}>
             {Container(item)}
           </TouchableHighlight>
         )

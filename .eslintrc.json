@@ -17,6 +17,14 @@
     "react/prefer-stateless-function": "off",
     "react/jsx-filename-extension": "off",
     "react/prop-types": "off",
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": [
+          "_value"
+        ]
+      }
+    ],
     "import/prefer-default-export": "off",
     "max-len": [
       "error",
