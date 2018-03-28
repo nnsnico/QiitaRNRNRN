@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, Animated, StatusBar, StyleSheet, ScrollView, Dimensions } from 'react-native';
+import { View, Animated, StatusBar, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import { Header } from 'react-navigation';
+import Markdown from 'react-native-simple-markdown';
 
 const HEADER_MAX_HEIGHT = 200;
 const HEADER_MIN_HEIGHT = 0;
@@ -55,6 +56,7 @@ class DetailScreen extends React.Component {
     return {
       title: params.title,
       headerStyle: {
+        elevation: 0,
         backgroundColor: '#8BC34AFF',
       },
       headerTitleStyle: {
@@ -113,7 +115,9 @@ class DetailScreen extends React.Component {
           ])}
         >
           <View style={[styles.scrollViewContent, { minHeight: height - Header.HEIGHT - StatusBar.currentHeight }]}>
-            <Text>{topic.body}</Text>
+            <Markdown>
+              {topic.body}
+            </Markdown>
           </View>
         </ScrollView>
         <Animated.View style={[styles.header, { height: headerHeight }]}>
