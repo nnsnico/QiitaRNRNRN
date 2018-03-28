@@ -11,7 +11,7 @@ function nav(state = initialNavState, action) {
       return AppNavigator.router.getStateForAction(
         NavigationActions.navigate({
           routeName: 'Detail',
-          // params: action.rest, // TODO: Add action param
+          params: action.topic, // TODO: Add action param
         }),
         state,
       );

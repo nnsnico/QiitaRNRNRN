@@ -45,9 +45,9 @@ class AppWithNavigationState extends React.Component {
     return true;
   }
 
-  pressListItem() {
+  pressListItem(item) {
     const { dispatch } = this.props;
-    dispatch(goDetail());
+    dispatch(goDetail(item));
   }
 
   render() {
