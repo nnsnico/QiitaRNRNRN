@@ -60,7 +60,7 @@ class DetailScreen extends React.Component {
         backgroundColor: '#8BC34AFF',
       },
       headerTitleStyle: {
-        opacity: params.animatedValue,
+        opacity: params.animatedValue !== undefined ? params.animatedValue : 0,
       },
     };
   }
